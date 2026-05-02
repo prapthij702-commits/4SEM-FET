@@ -2,100 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Form Example</title>
+    <title>Form with Radio & Fieldset</title>
 
     <!-- CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
+            background: #eef2f3;
         }
 
         .container {
-            background: white;
-            width: 300px;
+            width: 350px;
             margin: 50px auto;
+            background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px gray;
         }
 
-        input {
-            width: 90%;
+        fieldset {
+            border: 2px solid #4CAF50;
+            margin-bottom: 15px;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
         }
 
         button {
-            padding: 10px 20px;
-            background: blue;
+            padding: 10px;
+            width: 100%;
+            background: #4CAF50;
             color: white;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
         }
 
         button:hover {
-            background: darkblue;
+            background: #45a049;
         }
 
-        .error {
-            color: red;
-            font-size: 14px;
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
         }
 
-        .success {
-            color: green;
-            font-size: 16px;
-        }
+        .error { color: red; }
+        .success { color: green; }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h2>Registration Form</h2>
+<div class="container">
+    <h2>Survey Form</h2>
 
-        <!-- Form -->
-        <form onsubmit="return validateForm()">
-            <input type="text" id="name" placeholder="Enter your name"><br>
-            <input type="email" id="email" placeholder="Enter your email"><br>
-            <input type="password" id="password" placeholder="Enter password"><br>
+    <form onsubmit="return validateForm()">
 
-            <button type="submit">Submit</button>
-        </form>
+        <!-- Fieldset -->
+        <fieldset>
+            <legend>Personal Info</legend>
 
-        <p id="message"></p>
-    </div>
+            <input type="text" id="name" placeholder="Enter your name">
+            <input type="email" id="email" placeholder="Enter your email">
+        </fieldset>
 
-    <!-- JavaScript -->
-    <script>
-        function validateForm() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            let message = document.getElementById("message");
+        <!-- Radio Buttons -->
+        <fieldset>
+            <legend>Gender</legend>
 
-            if (name === "" || email === "" || password === "") {
-                message.innerHTML = "All fields are required!";
-                message.className = "error";
-                return false;
-            }
+            <input type="radio" name="gender" value="Male"> Male<br>
+            <input type="radio" name="gender" value="Female"> Female<br>
+            <input type="radio" name="gender" value="Other"> Other
+        </fieldset>
 
-            if (password.length < 6) {
-                message.innerHTML = "Password must be at least 6 characters!";
-                message.className = "error";
-                return false;
-            }
+        <button type="submit">Submit</button>
+    </form>
 
-            message.innerHTML = "Form submitted successfully!";
-            message.className = "success";
-            return false; // prevent actual submission
+    <p id="message"></p>
+</div>
+
+<!-- JavaScript -->
+<script>
+function validateForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let gender = document.getElementsByName("gender");
+    let message = document.getElementById("message");
+
+    // Loop through radio buttons
+    let genderSelected = false;
+    for (let i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            genderSelected = true;
+            break;
         }
-    </script>
+    }
+
+    if (name === "" || email === "") {
+        message.innerHTML = "Please fill all fields!";
+        message.className = "error";
+        return false;
+    }
+
+    if (!genderSelected) {
+        message.innerHTML = "Please select a gender!";
+        message.className = "error";
+        return false;
+    }
+
+    message.innerHTML = "Form submitted successfully!";
+    message.className = "success";
+    return false; // prevent actual submit
+}
+</script>
 
 </body>
 </html>
