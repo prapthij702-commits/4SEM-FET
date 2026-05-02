@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Form Example</title>
+
+    <!-- CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <!-- Form -->
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Enter your name"><br>
+            <input type="email" id="email" placeholder="Enter your email"><br>
+            <input type="password" id="password" placeholder="Enter password"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            if (name === "" || email === "" || password === "") {
+                message.innerHTML = "All fields are required!";
+                message.className = "error";
+                return false;
+            }
+
+            if (password.length < 6) {
+                message.innerHTML = "Password must be at least 6 characters!";
+                message.className = "error";
+                return false;
+            }
+
+            message.innerHTML = "Form submitted successfully!";
+            message.className = "success";
+            return false; // prevent actual submission
+        }
+    </script>
+
+</body>
+</html>
