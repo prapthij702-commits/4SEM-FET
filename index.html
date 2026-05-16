@@ -24,7 +24,7 @@
 
         .container{
             width:90%;
-            max-width:800px;
+            max-width:900px;
             background:white;
             border-radius:20px;
             padding:30px;
@@ -46,13 +46,15 @@
 
         h2{
             color:#34495e;
-            margin-bottom:25px;
+            margin-bottom:20px;
         }
 
+        /* Main assignments */
         .assignments{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
             gap:15px;
+            margin-bottom:40px;
         }
 
         .assignments a{
@@ -72,11 +74,43 @@
             transform:translateY(-5px);
         }
 
+        /* Separate box for other assignments */
+        .other-box{
+            background:#f4f6f9;
+            padding:25px;
+            border-radius:18px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .other-links{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        .other-links a{
+            text-decoration:none;
+            background:#9b59b6;
+            color:white;
+            padding:15px 20px;
+            border-radius:12px;
+            font-weight:bold;
+            transition:0.3s;
+            box-shadow:0 5px 10px rgba(0,0,0,0.15);
+        }
+
+        .other-links a:hover{
+            background:#e67e22;
+            transform:scale(1.05);
+        }
+
         footer{
             margin-top:25px;
             color:#777;
             font-size:14px;
         }
+
     </style>
 </head>
 
@@ -114,19 +148,29 @@
             <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/z_index.html">Assignment 11</a>
 
             <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/sk_while.html">Assignment 12</a>
-             <h2>📚 Other Assignments</h2>
 
-            <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/two.html">
-                Overview of Assignment 1 & 2
-            </a>
+        </div>
 
-            <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/four.html">
-                Assignment YouTube
-            </a>
+        <!-- Separate Box -->
+        <div class="other-box">
 
-            <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/six.html">
-                Basic HTML Table
-            </a>
+            <h2>📚 Other Assignments</h2>
+
+            <div class="other-links">
+
+                <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/two.html">
+                    Overview of Assignment 1 & 2
+                </a>
+
+                <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/four.html">
+                    Assignment YouTube
+                </a>
+
+                <a href="https://prapthij702-commits.github.io/4SEM-FET/assignments/six.html">
+                    Basic HTML Table
+                </a>
+
+            </div>
 
         </div>
 
