@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 1: The Broken Click</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f4f6f9;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <p style="text-align: left; margin: 20px;">
+        <a href="../challenges.html"
+           style="color: #007bff; text-decoration: none; font-weight: bold;">
+           ← Back to Challenges Main Menu
+        </a>
+    </p>
+
+    <div class="box">
+        <h2>Challenge 1: Click the Button to Register</h2>
+        <p>This button is completely unresponsive. Find out why!</p>
+
+        <!-- FIXED ID -->
+        <button id="submit-btn">Register Now</button>
+    </div>
+
+    <script>
+        const _0x4a2b = "🏆 VICTORY KEY: " +
+            atob("RE9NX1NFTEVDVE9SX0ZPVU5EXzgx");
+
+        try {
+            document.getElementById('submit-btn')
+                .addEventListener('click', () => {
+                    alert(_0x4a2b);
+                });
+        } catch(e) {
+            console.error(
+                "Runtime Exception: Cannot read properties of null (reading 'addEventListener')"
+            );
+        }
+
+        setInterval(() => {
+            const btn = document.getElementById('submit-btn');
+
+            if (btn && !btn.onclick && btn.id === 'submit-btn') {
+                btn.onclick = () => alert(_0x4a2b);
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
+
+When you click the button now, it wi
